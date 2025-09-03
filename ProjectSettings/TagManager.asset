@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Bullet_P
+  - Bullet_E
+  - Wall
+  - Heart
+  - Item
+  - Bullet_BB
+  - Bullet_BT
+  - Boss
+  - Pattern
+  - Kick
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BG
+    uniqueID: 766850593
+    locked: 0
+  - name: item
+    uniqueID: 337941953
+    locked: 0
+  - name: Character
+    uniqueID: 3230382111
+    locked: 0
+  - name: Effect
+    uniqueID: 2758809247
+    locked: 0
+  - name: fil
+    uniqueID: 3008980037
+    locked: 0
+  - name: UI
+    uniqueID: 3527219833
+    locked: 0
+  - name: UI2
+    uniqueID: 3208723423
+    locked: 0
