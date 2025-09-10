@@ -51,16 +51,16 @@ public class Enemy : MonoBehaviour
 
     void Move()
     {
-        if (isPushing == false) //�÷��̾�� �浹 Ȯ��
+        if (isPushing == false) 
         {
             Vector2 direction = player.position - transform.position;
             transform.Translate(direction.normalized * speed * Time.deltaTime);
-            //�÷��̾�� �ٰ���
+          
 
         }
    }
 
-    void LookAt() //�ִϸ��̼�
+    void LookAt()
     {
         Vector2 direction = player.position - transform.position;
         direction.y = 0;
@@ -79,36 +79,36 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")) //�÷��̾�� �浹 ��
+        if (collision.gameObject.CompareTag("Player")) 
         {
             isPushing = true; 
             if (pushDuration > 0f)
             {
-                Vector2 pushDirection = transform.position - collision.gameObject.transform.position; //�÷��̾� �浹 ���� ����.
-                StartCoroutine(AddForceCoroutine(rb, pushDirection.normalized)); //�浹 �� �о
+                Vector2 pushDirection = transform.position - collision.gameObject.transform.position;
+                StartCoroutine(AddForceCoroutine(rb, pushDirection.normalized)); 
             }
         }
-        else if (collision.gameObject.CompareTag("Enemy")) //���� �浹 ��
+        else if (collision.gameObject.CompareTag("Enemy")) 
         {
             isPushing = true;
             if (pushDuration > 0f)
             {
-                Vector2 pushDirection = transform.position - collision.gameObject.transform.position; //������ �浹 ���� ����
-                StartCoroutine(AddForceCoroutine2(rb, pushDirection.normalized)); //�浹 �� �о
+                Vector2 pushDirection = transform.position - collision.gameObject.transform.position; 
+                StartCoroutine(AddForceCoroutine2(rb, pushDirection.normalized)); 
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet_P")) //�÷��̾� �Ѿ˰� �浹 ��
+        if (collision.gameObject.CompareTag("Bullet_P")) 
         {
             hp -= 1;
-            if (hp == 0) //������
+            if (hp == 0) 
             {
-                Instantiate(itemDropPrefab, transform.position, Quaternion.identity); //������ ���
+                Instantiate(itemDropPrefab, transform.position, Quaternion.identity);
                 animator.SetBool("checkDie", true);
-                audioSource.clip = monsterDieClip; //�״� �Ҹ�
+                audioSource.clip = monsterDieClip; 
                 audioSource.Play();
                 Destroy(gameObject,0.15f);
             }
@@ -118,18 +118,18 @@ public class Enemy : MonoBehaviour
     IEnumerator AddForceCoroutine(Rigidbody2D enemyRb, Vector2 pushDirection)
     {
         isPushing = true;
-        enemyRb.AddForce(pushDirection * pushForce, ForceMode2D.Impulse); // �ڽ��� �о
-        yield return new WaitForSeconds(pushDuration); // ���� �ð� ���
-        enemyRb.linearVelocity = Vector2.zero; //�ڽ��� �ӵ� �ʱ�ȭ
+        enemyRb.AddForce(pushDirection * pushForce, ForceMode2D.Impulse); 
+        yield return new WaitForSeconds(pushDuration);
+        enemyRb.linearVelocity = Vector2.zero;
         isPushing = false;
     }
 
     IEnumerator AddForceCoroutine2(Rigidbody2D enemyRb, Vector2 pushDirection)
     {
         isPushing = true;
-        enemyRb.AddForce(pushDirection * pushForce2, ForceMode2D.Impulse); // �ڽ��� �о
-        yield return new WaitForSeconds(pushDuration2); // ���� �ð� ���
-        enemyRb.linearVelocity = Vector2.zero; //�ڽ��� �ӵ� �ʱ�ȭ
+        enemyRb.AddForce(pushDirection * pushForce2, ForceMode2D.Impulse); 
+        yield return new WaitForSeconds(pushDuration2); 
+        enemyRb.linearVelocity = Vector2.zero; 
         isPushing = false;
     }
 }

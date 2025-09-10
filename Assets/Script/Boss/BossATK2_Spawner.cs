@@ -26,21 +26,20 @@ public class BossATK2_Spawner : MonoBehaviour
   
     void Update()
     {
-        //�߻� ����
+    
         lookDirection_1 = player.position - transform.position;
         lookDirection_2 = new Vector2(player.position.x - transform.position.x + 2f, player.position.y - transform.position.y + 2f);
         lookDirection_3 = new Vector2(player.position.x - transform.position.x - 2f, player.position.y - transform.position.y - 2f);
 
-       //�Ѿ� �߻�
         if (Time.time >= nextFireTime)
         {
-            //�߻� �Ҹ�
+        
             audioSource.PlayOneShot(ATKsoundClip);
 
-            // �߻� ������
+           
             nextFireTime = Time.time + fireRate;
 
-            // �÷��̾ ���� 3���� �Ѿ� �߻�
+           
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             bullet.GetComponent<Rigidbody2D>().linearVelocity = lookDirection_1.normalized * bulletSpeed;
 

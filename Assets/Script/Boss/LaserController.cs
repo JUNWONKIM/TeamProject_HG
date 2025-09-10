@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LaserController : MonoBehaviour
 {
-    public float speed = 10f; // 레이저 이동 속도
+    public float speed = 20f; // 레이저 이동 속도
 
     private Vector3 direction; // 레이저 발사 방향
 

@@ -49,15 +49,15 @@ public class BossLaser : MonoBehaviour
 
     Vector3 CalculateRandomPosition()
     {
-        // 보스 위치를 기준으로 반지름 범위 내에서 랜덤한 위치를 계산합니다.
+        // 보스 위치를 기준으로 반지름 범위 내에서 랜덤한 위치를 계산
         Vector3 bossPosition = transform.position; // 보스의 위치
         float radius = 5f; // 반지름 범위
 
-        // 랜덤한 각도를 계산합니다.
+        // 랜덤한 각도를 계산
         float randomAngle = Random.Range(0f, 360f);
-        // 랜덤한 위치를 계산합니다.
+        // 랜덤한 위치를 계산
         Vector3 randomOffset = Quaternion.Euler(0f, 0f, randomAngle) * Vector3.right * radius;
-        // 보스 위치와 랜덤한 오프셋을 합산하여 최종 위치를 계산합니다.
+        // 보스 위치와 랜덤한 오프셋을 합산하여 최종 위치를 계산
         Vector3 randomPosition = bossPosition + randomOffset;
 
         return randomPosition;
